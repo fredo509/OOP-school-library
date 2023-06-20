@@ -1,10 +1,10 @@
-# Morse
+# OPP SHOOL
 
 <a name="readme-top"></a>
 
 <div align="center">
   
-  <h3><b>Morse project Readme</b></h3>
+  <h3><b>OPP SHOOL Project Readme</b></h3>
 
 </div>
 
@@ -30,11 +30,11 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 [JavaScript capstone project] <a name="about-project"></a>
+# 📖 [OPP SHOOL project] <a name="about-project"></a>
 
 
 
-**[Space Traveler's Hub]** this project provide users to decode message code we use 3 methods to convert word , character and messsage.
+**[OPP SHOOL]** this project provide users to create a structure of a school.
 
 ## 🛠 Built With <a name="built-with"></a>
 Ruby
@@ -52,7 +52,7 @@ Ruby
 
 ### Key Features <a name="key-features"></a>
 
-- **[Allow users to convert morse code in string alphabet]**
+- **[Allow users to see students progress]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -76,7 +76,7 @@ In order to run this project you need:
 Clone this repository to your desired folder or download the Zip folder:
 
 ```
-https://github.com/julzedz/Morse.git
+https://github.com/fredo509/opp-school-library.git
 ```
 
 ### Install
@@ -101,13 +101,6 @@ exemnple : Decode_char(".-")
 
 ## 👥 Author <a name="authors"></a>
 
-👤 **Jules Edozie*
-- GitHub: [Jules Edozie](https://github.com/julzedz)
-- Twitter: [DZ](https://twitter.com/julzedz)
-- LinkedIn: [Jules Edozie](https://www.linkedin.com/in/jules-edozie/)
-
-
-
 👤 **Fredo Fleur**
 
 - GitHub: [fredo509](https://github.com/fredo509)
@@ -120,7 +113,7 @@ exemnple : Decode_char(".-")
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] **[WE will convert aphabet code in morse code]**
+- [ ] **[I will create a UI interface]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -146,7 +139,7 @@ If you like this project give me a star ⭐️
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-I want to thank my coding partner Fredo st fleur who help me a lot to complete this project.
+I want to thanks the microverse community.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
