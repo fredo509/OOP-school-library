@@ -19,7 +19,3 @@ class Person
     @age >= 18
   end
 end
-
-# person = Person.new(name: 'ben', age: 34, parent_permission: true)
-
-# puts person.can_use_services?
