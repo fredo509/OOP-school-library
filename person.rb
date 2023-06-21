@@ -1,3 +1,5 @@
+require_relative('./nameable')
+
 class Person
   attr_reader :id
   attr_accessor :name, :age
@@ -7,10 +9,15 @@ class Person
     @name = name
     @age = age
     @parent_permission = parent_permission
+    @validate = Nameable.new
   end
 
   def can_use_services?
     of_age? || @parent_permission
+  end
+
+  def validate_name
+    @name = validate.correct_name(@name)
   end
 
   private
