@@ -1,23 +1,23 @@
-require_relative('./nameable')
+require_relative 'nameable'
 
-class Person
+class Person < Nameable
   attr_reader :id
   attr_accessor :name, :age
 
-  def initialize(age, name = 'Unknown', parent_permission: true)
-    @id = Random.rand(1..1000)
+  def initialize(age, name = 'Unknown', id = Random.rand(1..1000), parent_permission: true)
+    super()
+    @id = id
     @name = name
     @age = age
     @parent_permission = parent_permission
-    @validate = Nameable.new
   end
 
   def can_use_services?
     of_age? || @parent_permission
   end
 
-  def validate_name
-    @name = validate.correct_name(@name)
+  def correct_name
+    @name
   end
 
   private
