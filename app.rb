@@ -57,7 +57,7 @@ class App
     age = gets.chomp.to_i
     print 'Enter name: '
     name = gets.chomp
-    print 'Has parent permission? [Y/N]: '
+    print 'Has parent permission? [y/n]: '
     parent_permission = gets.chomp.downcase
     case parent_permission
     when 'n'

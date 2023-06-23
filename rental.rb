@@ -1,12 +1,10 @@
-require 'date'
-
 class Rental
-  attr_accessor :date, :book, :person
+  attr_accessor :date, :person, :book
 
-  def initialize(book, person, date = DateTime.now())
+  def initialize(date, person, book)
     @date = date
-    @book = book
     @person = person
+    @book = book
     person.rentals << self
     book.rentals << self
   end
