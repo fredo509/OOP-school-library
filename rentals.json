@@ -1,0 +1,27 @@
+[
+  {
+    "date": "2023-06-25",
+    "person": "John Doe",
+    "book": "Harry Potter and the Philosopher's Stone"
+  },
+  {
+    "date": "2023-06-26",
+    "person": "Jane Smith",
+    "book": "To Kill a Mockingbird"
+  },
+  {
+    "date": "2023-06-27",
+    "person": "Michael Johnson",
+    "book": "Nineteen Eighty-Four"
+  },
+  {
+    "date": "2023-06-28",
+    "person": "Emily Davis",
+    "book": "Pride and Prejudice"
+  },
+  {
+    "date": "2023-06-29",
+    "person": "David Brown",
+    "book": "The Great Gatsby"
+  }
+]

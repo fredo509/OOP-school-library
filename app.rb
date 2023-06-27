@@ -4,10 +4,11 @@ require_relative 'teacher'
 require_relative 'book'
 require_relative 'classroom'
 require_relative 'rental'
+require_relative 'store'
 
 class App
   def initialize
-    @books = []
+    @books = Store.read_data_from_file('books.json')
     @persons = []
     @rentals = []
   end
@@ -27,7 +28,9 @@ class App
 
   def list_all_books
     puts 'Database is empty! Add a book.' if @books.empty?
-    @books.each { |book| puts "[Book] Title: #{book.title}, Author: #{book.author}" }
+    @books.each do |book|
+      puts "[Book] Title: #{book['title']}, Author: #{book['author']}"
+    end
   end
 
   def list_all_persons
