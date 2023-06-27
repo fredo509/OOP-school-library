@@ -10,8 +10,8 @@ def list_of_options
   puts 'Please choose an option by entering a number:'
   puts '1 - list all books'
   puts '2 - list all people'
-  puts '3 - create a person'
-  puts '4 - create a book'
+  puts '3 - create a new person'
+  puts '4 - create a new book'
   puts '5 - create a renter'
   puts '6 - list all renters for a given person id'
   puts '7 - Exit'
@@ -35,5 +35,4 @@ def option(input)
     puts 'Please enter a number between 1 and 7'
   end
 end
-
 main

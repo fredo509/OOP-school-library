@@ -107,6 +107,12 @@ exemnple : Decode_char(".-")
 - Twitter: [@Fredo_st_fleur](https://twitter.com/Fredo_st_fleur?t=kXdEx7GqmngfCYId_vu8Tg&s=09)
 - LinkedIn: [fredo-st-fleur](https://www.linkedin.com/in/fredo-st-fleur)
 
+👤 **Christian Onoh**
+
+- GitHub: [@christianonoh](https://github.com/christianonoh)
+- Twitter: [@OnohChristian](https://twitter.com/OnohChristian)
+- LinkedIn: [@christianonoh](https://www.linkedin.com/in/christianonoh/)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
