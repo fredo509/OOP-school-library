@@ -11,4 +11,3 @@ module Store
   end
 end
 
-# puts Store.read_data_from_file('books.json')
