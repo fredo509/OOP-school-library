@@ -10,4 +10,3 @@ module Store
     data.empty? ? [] : JSON.parse(data)
   end
 end
-

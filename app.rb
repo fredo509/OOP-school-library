@@ -31,8 +31,8 @@ class App
 
   def list_all_books
     puts 'Database is empty! Add a book.' if @preserveBook.empty?
-     @preserveBook.each { |book| puts "[Book] Title: #{book['title']}, Author: #{book['author']}" }
-     @books.each { |book| puts "[Book] Title: #{book.title}, Author: #{book.author}" } 
+    @preserveBook.each { |book| puts "[Book] Title: #{book['title']}, Author: #{book['author']}" }
+    @books.each { |book| puts "[Book] Title: #{book.title}, Author: #{book.author}" }
   end
 
   def list_all_persons
@@ -78,9 +78,9 @@ class App
 
       data = @preservePerson
       @persons.each do |person|
-      data << { name: person.name, id: person.id, age: person.age, classname: person.class.name }
-    end
-    Store.save('people.json', data)
+        data << { name: person.name, id: person.id, age: person.age, classname: person.class.name }
+      end
+      Store.save('people.json', data)
       puts 'Student created successfully'
     end
   end
@@ -97,8 +97,8 @@ class App
     @persons << teacher
 
     data = @preservePerson
-      @persons.each do |person|
-      data << { name: person.name, id: person.id, age: person.age, classname: person.class.name}
+    @persons.each do |person|
+      data << { name: person.name, id: person.id, age: person.age, classname: person.class.name }
     end
     Store.save('people.json', data)
     puts 'Teacher created successfully'
@@ -142,7 +142,7 @@ class App
     date = gets.chomp.to_s
     rental = Rental.new(date, @persons[person_id], @books[book_id])
     rental = Rental.new(date, @preservePerson[person_id], @preserveBook[book_id])
-   
+
 
     @rentals << rental
 
@@ -165,25 +165,27 @@ class App
 
     puts 'Rented Books: '
     rentals_found = false
-    
+
     if @rentals.length > 0
-     @rentals.each do |rental|
-      if rental.person['id'] == id
-        puts "Person: #{rental.person['name']} Date: #{rental.date}, Book: '#{rental.book['title']}' by #{rental.book['author']}"
-      else
-        puts
-        puts 'No record were found for the given ID'
+      @rentals.each do |rental|
+        if rental.person['id'] == id
+          # rubocop:disable Layout/LineLength
+          puts "Person: #{rental.person['name']} Date: #{rental.date}, Book: '#{rental.book['title']}' by #{rental.book['author']}"
+        else
+          puts
+          puts 'No record were found for the given ID'
+        end
       end
+    else
+
+      @preserveRental.each do |rental|
+        if rental['person']['id'] == id
+          # rubocop:disable Layout/LineLength
+          puts "Person: #{rental['person']['name']} Date: #{rental['date']}, Book: '#{rental['book']['title']}' by #{rental['book']['author']}"
+          rentals_found = true
+        end
+      end
+      puts 'No records found' unless rentals_found
     end
-  else
-    
-    @preserveRental.each do |rental|
-      if rental['person']['id'] == id
-        puts "Person: #{rental['person']['name']} Date: #{rental['date']}, Book: '#{rental['book']['title']}' by #{rental['book']['author']}"
-        rentals_found = true
-      end
-    end 
-   puts 'No records found' unless rentals_found
   end
-end
 end
