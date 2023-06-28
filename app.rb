@@ -164,34 +164,15 @@ class App
     id = gets.chomp.to_i
 
     puts 'Rented Books: '
-
-    #   @rentals.each do |rental|
-    #   if rental.person['id'] == id 
-    #     puts "Person: #{rental.person['name']} Date: #{rental.date}, Book: '#{rental.book['title']}' by #{rental.book['author']}"
-    #   else
-    #     puts 'No record were found for the given ID'
-    #   end
-    # end
+    rentals_found = false
 
     @preserveRental.each do |rental|
-      if rental['person']['id']
+      if rental['person']['id'] == id
         puts "Person: #{rental['person']['name']} Date: #{rental['date']}, Book: '#{rental['book']['title']}' by #{rental['book']['author']}"
-      else
-        puts
-        puts 'No record were found for the given ID'
+        rentals_found = true
       end
     end
-
-
-    
-
-    # @preserveRental.each do |rental|
-    #   if rental.person.id == id
-    #     puts "Person: #{rental.person.name} Date: #{rental.date}, Book: '#{rental.book.title}' by #{rental.book.author}"
-    #   else
-    #     puts
-    #     puts 'No record were found for the given ID'
-    #   end
-    # end
+  
+    puts 'No records found' unless rentals_found
   end
 end
