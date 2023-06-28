@@ -10,6 +10,7 @@ class App
   def initialize
     @preserveBook = Store.read_data_from_file('books.json')
     @preservePerson = Store.read_data_from_file('people.json')
+    @preserveRental = Store.read_data_from_file('rentals.json')
     @books = []
     @persons = []
     @rentals = []
@@ -111,7 +112,7 @@ class App
     author = gets
     book = Book.new(title, author)
     @books.push(book)
-
+    @books << book
     data = @preserveBook
     @books.each do |b|
       data << { title: b.title, author: b.author }
@@ -124,11 +125,15 @@ class App
   def create_rental
     puts 'select the book you want to rent by entering it\'s number'
     @books.each_with_index { |book, index| puts "#{index}) Title: #{book.title}, Author: #{book.author}" }
-
+    @preserveBook.each_with_index { |book, index| puts "#{index}) Title: #{book['title']}, Author: #{book['author']}" }
     book_id = gets.chomp.to_i
     puts 'select person from the list by its number'
     @persons.each_with_index do |person, index|
       puts "#{index} [#{person.class.name}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
+    end
+
+    @preservePerson.each_with_index do |person, index|
+      puts "#{index} [#{person['classname']}] Name: #{person['name']}, ID: #{person['id']}, Age: #{person['age']}"
     end
 
     person_id = gets.chomp.to_i
@@ -136,7 +141,20 @@ class App
     print 'Date: '
     date = gets.chomp.to_s
     rental = Rental.new(date, @persons[person_id], @books[book_id])
+    rental = Rental.new(date, @preservePerson[person_id], @preserveBook[book_id])
+   
+
     @rentals << rental
+
+    data = @preserveRental
+    @rentals.each do |rent|
+      data << { date: rent.date, book: { title: rent.book['title'], author: rent.book['author'] }, person: {
+        id: rent.person['id'],
+        name: rent.person['name'],
+        age: rent.person['age']
+      } }
+    end
+    Store.save('rentals.json', data)
 
     puts 'Rental created successfully'
   end
@@ -146,13 +164,34 @@ class App
     id = gets.chomp.to_i
 
     puts 'Rented Books: '
-    @rentals.each do |rental|
-      if rental.person.id == id
-        puts "Person: #{rental.person.name} Date: #{rental.date}, Book: '#{rental.book.title}' by #{rental.book.author}"
+
+    #   @rentals.each do |rental|
+    #   if rental.person['id'] == id 
+    #     puts "Person: #{rental.person['name']} Date: #{rental.date}, Book: '#{rental.book['title']}' by #{rental.book['author']}"
+    #   else
+    #     puts 'No record were found for the given ID'
+    #   end
+    # end
+
+    @preserveRental.each do |rental|
+      if rental['person']['id']
+        puts "Person: #{rental['person']['name']} Date: #{rental['date']}, Book: '#{rental['book']['title']}' by #{rental['book']['author']}"
       else
         puts
         puts 'No record were found for the given ID'
       end
     end
+
+
+    
+
+    # @preserveRental.each do |rental|
+    #   if rental.person.id == id
+    #     puts "Person: #{rental.person.name} Date: #{rental.date}, Book: '#{rental.book.title}' by #{rental.book.author}"
+    #   else
+    #     puts
+    #     puts 'No record were found for the given ID'
+    #   end
+    # end
   end
 end
