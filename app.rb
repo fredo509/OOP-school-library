@@ -165,14 +165,25 @@ class App
 
     puts 'Rented Books: '
     rentals_found = false
-
+    
+    if @rentals.length > 0
+     @rentals.each do |rental|
+      if rental.person['id'] == id
+        puts "Person: #{rental.person['name']} Date: #{rental.date}, Book: '#{rental.book['title']}' by #{rental.book['author']}"
+      else
+        puts
+        puts 'No record were found for the given ID'
+      end
+    end
+  else
+    
     @preserveRental.each do |rental|
       if rental['person']['id'] == id
         puts "Person: #{rental['person']['name']} Date: #{rental['date']}, Book: '#{rental['book']['title']}' by #{rental['book']['author']}"
         rentals_found = true
       end
-    end
-  
-    puts 'No records found' unless rentals_found
+    end 
+   puts 'No records found' unless rentals_found
   end
+end
 end
