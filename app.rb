@@ -8,7 +8,8 @@ require_relative 'store'
 
 class App
   def initialize
-    @books = Store.read_data_from_file('books.json')
+    @preserveBook = Store.read_data_from_file('books.json')
+    @books = []
     @persons = []
     @rentals = []
   end
@@ -27,10 +28,9 @@ class App
   end
 
   def list_all_books
-    puts 'Database is empty! Add a book.' if @books.empty?
-    @books.each do |book|
-      puts "[Book] Title: #{book['title']}, Author: #{book['author']}"
-    end
+    puts 'Database is empty! Add a book.' if @preserveBook.empty?
+     @preserveBook.each { |book| puts "[Book] Title: #{book['title']}, Author: #{book['author']}" }
+     @books.each { |book| puts "[Book] Title: #{book.title}, Author: #{book.author}" } 
   end
 
   def list_all_persons
@@ -95,6 +95,13 @@ class App
     author = gets
     book = Book.new(title, author)
     @books.push(book)
+
+    data = @preserveBook
+    @books.each do |b|
+      data << { title: b.title, author: b.author }
+    end
+    Store.save('books.json', data)
+
     puts "Book #{title} created successfully."
   end
 
