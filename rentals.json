@@ -1,122 +1,26 @@
 [
   {
-    "date": "",
+    "date": "20/06/23",
     "book": {
       "title": "test",
       "author": "fredo\n"
     },
     "person": {
-      "id": 71,
-      "name": "Fredo",
-      "age": 23
+      "id": null,
+      "name": null,
+      "age": null
     }
   },
   {
-    "date": "",
+    "date": "20/06/2023",
     "book": {
-      "title": "test",
-      "author": "fredo\n"
+      "title": "Things fall apart",
+      "author": "Chinua Achebe\n"
     },
     "person": {
-      "id": 71,
-      "name": "Fredo",
-      "age": 23
-    }
-  },
-  {
-    "date": "",
-    "book": {
-      "title": "test",
-      "author": "fredo\n"
-    },
-    "person": {
-      "id": 71,
-      "name": "Fredo",
-      "age": 23
-    }
-  },
-  {
-    "date": "",
-    "book": {
-      "title": "test",
-      "author": "fredo\n"
-    },
-    "person": {
-      "id": 71,
-      "name": "Fredo",
-      "age": 23
-    }
-  },
-  {
-    "date": "",
-    "book": {
-      "title": "test",
-      "author": "fredo\n"
-    },
-    "person": {
-      "id": 71,
-      "name": "Fredo",
-      "age": 23
-    }
-  },
-  {
-    "date": "",
-    "book": {
-      "title": "test",
-      "author": "fredo\n"
-    },
-    "person": {
-      "id": 71,
-      "name": "Fredo",
-      "age": 23
-    }
-  },
-  {
-    "date": "",
-    "book": {
-      "title": "test",
-      "author": "fredo\n"
-    },
-    "person": {
-      "id": 71,
-      "name": "Fredo",
-      "age": 23
-    }
-  },
-  {
-    "date": "",
-    "book": {
-      "title": "test",
-      "author": "fredo\n"
-    },
-    "person": {
-      "id": 71,
-      "name": "Fredo",
-      "age": 23
-    }
-  },
-  {
-    "date": "",
-    "book": {
-      "title": "test",
-      "author": "fredo\n"
-    },
-    "person": {
-      "id": 71,
-      "name": "Fredo",
-      "age": 23
-    }
-  },
-  {
-    "date": "",
-    "book": {
-      "title": "test",
-      "author": "fredo\n"
-    },
-    "person": {
-      "id": 71,
-      "name": "Fredo",
-      "age": 23
+      "id": 98,
+      "name": "Christian",
+      "age": 30
     }
   }
 ]

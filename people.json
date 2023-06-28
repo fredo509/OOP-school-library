@@ -1,14 +1,8 @@
 [
   {
-    "name": "Fredo",
-    "id": 71,
-    "age": 23,
-    "classname": "Student"
-  },
-  {
-    "name": "Fred",
-    "id": 93,
-    "age": 34,
+    "name": "Christian",
+    "id": 98,
+    "age": 30,
     "classname": "Student"
   }
 ]
