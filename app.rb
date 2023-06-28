@@ -9,6 +9,7 @@ require_relative 'store'
 class App
   def initialize
     @preserveBook = Store.read_data_from_file('books.json')
+    @preservePerson = Store.read_data_from_file('people.json')
     @books = []
     @persons = []
     @rentals = []
@@ -37,6 +38,9 @@ class App
     puts 'Database is empty! Add a person.' if @persons.empty?
     @persons.each do |person|
       puts "[#{person.class.name}] Name: #{person.name}, Age: #{person.age}, id: #{person.id}"
+    end
+    @preservePerson.each do |person|
+      puts "[#{person['classname']}] Name: #{person['name']}, Age: #{person['age']}, id: #{person['id']}"
     end
   end
 
@@ -70,6 +74,12 @@ class App
     when 'y'
       student = Student.new(age: age, name: name, parent_permission: parent_permission, classroom: @classroom)
       @persons << student
+
+      data = @preservePerson
+      @persons.each do |person|
+      data << { name: person.name, id: person.id, age: person.age, classname: person.class.name }
+    end
+    Store.save('people.json', data)
       puts 'Student created successfully'
     end
   end
@@ -84,6 +94,12 @@ class App
     name = gets.chomp
     teacher = Teacher.new(specialization, age, name)
     @persons << teacher
+
+    data = @preservePerson
+      @persons.each do |person|
+      data << { name: person.name, id: person.id, age: person.age, classname: person.class.name}
+    end
+    Store.save('people.json', data)
     puts 'Teacher created successfully'
   end
 
