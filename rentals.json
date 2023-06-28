@@ -1,0 +1,26 @@
+[
+  {
+    "date": "20/08/2023",
+    "book": {
+      "title": null,
+      "author": null
+    },
+    "person": {
+      "id": 98,
+      "name": "Christian",
+      "age": 30
+    }
+  },
+  {
+    "date": "333",
+    "book": {
+      "title": null,
+      "author": null
+    },
+    "person": {
+      "id": 98,
+      "name": "Christian",
+      "age": 30
+    }
+  }
+]

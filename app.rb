@@ -112,7 +112,6 @@ class App
     author = gets
     book = Book.new(title, author)
     @books.push(book)
-    @books << book
     data = @preserveBook
     @books.each do |b|
       data << { title: b.title, author: b.author }

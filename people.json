@@ -4,5 +4,17 @@
     "id": 98,
     "age": 30,
     "classname": "Student"
+  },
+  {
+    "name": "Salman",
+    "id": 84,
+    "age": 30,
+    "classname": "Teacher"
+  },
+  {
+    "name": "Fredo",
+    "id": 80,
+    "age": 40,
+    "classname": "Student"
   }
 ]
