@@ -8,9 +8,9 @@ require_relative 'store'
 
 class App
   def initialize
-    @preserveBook = Store.read_data_from_file('books.json')
-    @preservePerson = Store.read_data_from_file('people.json')
-    @preserveRental = Store.read_data_from_file('rentals.json')
+    @preserve_book = Store.read_data_from_file('books.json')
+    @preserve_person = Store.read_data_from_file('people.json')
+    @preserve_rental = Store.read_data_from_file('rentals.json')
     @books = []
     @persons = []
     @rentals = []
@@ -30,19 +30,23 @@ class App
   end
 
   def list_all_books
-    puts 'Database is empty! Add a book.' if @preserveBook.empty?
-    @preserveBook.each { |book| puts "[Book] Title: #{book['title']}, Author: #{book['author']}" }
-    @books.each { |book| puts "[Book] Title: #{book.title}, Author: #{book.author}" }
+    if  @books != @books.empty? && @preserve_book != @preserve_book.empty?
+      @preserve_book.each { |book| puts "[Book] Title: #{book['title']}, Author: #{book['author']}" }
+    end
+    puts 'Database is empty! Add a book.'if @preserve_book.empty?
   end
 
   def list_all_persons
-    puts 'Database is empty! Add a person.' if @persons.empty?
-    @persons.each do |person|
-      puts "[#{person.class.name}] Name: #{person.name}, Age: #{person.age}, id: #{person.id}"
-    end
-    @preservePerson.each do |person|
+    if @persons != @persons.empty? && @preserve_person != @preserve_person.empty?
+    @preserve_person.each do |person|
       puts "[#{person['classname']}] Name: #{person['name']}, Age: #{person['age']}, id: #{person['id']}"
     end
+  if @persons.empty?
+    @persons.each do |person|
+      puts "[#{person.class.name}] Name: #{person.name}, Age: #{person.age}, id: #{person.id}"
+      break
+    end
+  end
   end
 
   def create_person
@@ -76,7 +80,7 @@ class App
       student = Student.new(age: age, name: name, parent_permission: parent_permission, classroom: @classroom)
       @persons << student
 
-      data = @preservePerson
+      data = @preserve_person
       @persons.each do |person|
         data << { name: person.name, id: person.id, age: person.age, classname: person.class.name }
       end
@@ -96,7 +100,7 @@ class App
     teacher = Teacher.new(specialization, age, name)
     @persons << teacher
 
-    data = @preservePerson
+    data = @preserve_person
     @persons.each do |person|
       data << { name: person.name, id: person.id, age: person.age, classname: person.class.name }
     end
@@ -112,7 +116,7 @@ class App
     author = gets
     book = Book.new(title, author)
     @books.push(book)
-    data = @preserveBook
+    data = @preserve_book
     @books.each do |b|
       data << { title: b.title, author: b.author }
     end
@@ -123,15 +127,18 @@ class App
 
   def create_rental
     puts 'select the book you want to rent by entering it\'s number'
+    if @books != @books.empty?
     @books.each_with_index { |book, index| puts "#{index}) Title: #{book.title}, Author: #{book.author}" }
-    @preserveBook.each_with_index { |book, index| puts "#{index}) Title: #{book['title']}, Author: #{book['author']}" }
+    end
+    if @preserve_book != @preserve_book.empty?
+    @preserve_book.each_with_index { |book, index| puts "#{index}) Title: #{book['title']}, Author: #{book['author']}" }
+    end
     book_id = gets.chomp.to_i
     puts 'select person from the list by its number'
     @persons.each_with_index do |person, index|
       puts "#{index} [#{person.class.name}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
     end
-
-    @preservePerson.each_with_index do |person, index|
+    @preserve_person.each_with_index do |person, index|
       puts "#{index} [#{person['classname']}] Name: #{person['name']}, ID: #{person['id']}, Age: #{person['age']}"
     end
 
@@ -140,12 +147,9 @@ class App
     print 'Date: '
     date = gets.chomp.to_s
     rental = Rental.new(date, @persons[person_id], @books[book_id])
-    rental = Rental.new(date, @preservePerson[person_id], @preserveBook[book_id])
-
-
+    rental = Rental.new(date, @preserve_person[person_id], @preserve_book[book_id])
     @rentals << rental
-
-    data = @preserveRental
+    data = @preserve_rental
     @rentals.each do |rent|
       data << { date: rent.date, book: { title: rent.book['title'], author: rent.book['author'] }, person: {
         id: rent.person['id'],
@@ -165,26 +169,33 @@ class App
     puts 'Rented Books: '
     rentals_found = false
 
-    if @rentals.length > 0
-      @rentals.each do |rental|
-        if rental.person['id'] == id
-          # rubocop:disable Layout/LineLength
-          puts "Person: #{rental.person['name']} Date: #{rental.date}, Book: '#{rental.book['title']}' by #{rental.book['author']}"
-        else
-          puts
-          puts 'No record were found for the given ID'
-        end
-      end
-    else
+    if @rentals != @rentals.empty? && @preserve_rental != @preserve_rental.empty?
+      # @rentals.each do |rental|
+      #   if rental.person['id'] == id
+      #     puts "Person: #{rental.person['name']} Date: #{rental.date}, Book: '#{rental.book['title']}' by #{rental.book['author']}"
 
-      @preserveRental.each do |rental|
+      #   else
+      #     puts
+      #     puts 'No record were found for the given ID'
+      #   end
+      # end
+      @preserve_rental.each do |rental|
         if rental['person']['id'] == id
-          # rubocop:disable Layout/LineLength
           puts "Person: #{rental['person']['name']} Date: #{rental['date']}, Book: '#{rental['book']['title']}' by #{rental['book']['author']}"
           rentals_found = true
+          break
         end
       end
       puts 'No records found' unless rentals_found
     end
-  end
+    end
+    # elsif @rentals.empty?
+    #   @preserve_rental.each do |rental|
+    #       if rental['person']['id'] == id
+    #         puts "Person: #{rental['person']['name']} Date: #{rental['date']}, Book: '#{rental['book']['title']}' by #{rental['book']['author']}"
+    #         rentals_found = true
+    #       end
+    #     end
+    #   # puts 'No records found' unless rentals_found
+    # end
 end
