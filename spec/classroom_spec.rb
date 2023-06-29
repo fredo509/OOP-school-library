@@ -1,6 +1,5 @@
 require_relative '../classroom'
 require_relative '../student'
-
 describe Classroom do
   context 'When testing the Classroom class' do
     before(:each) do

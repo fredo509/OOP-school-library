@@ -1,5 +1,4 @@
 require_relative '../teacher'
-
 describe Teacher do
   context 'When testing the Teacher class' do
     before(:each) do
