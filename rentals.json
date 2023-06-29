@@ -1,0 +1,14 @@
+[
+  {
+    "date": "12/03/2023",
+    "book": {
+      "title": "Love story",
+      "author": "Ana\n"
+    },
+    "person": {
+      "id": 46,
+      "name": "Fredo",
+      "age": 23
+    }
+  }
+]
