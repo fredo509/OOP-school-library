@@ -1,134 +1,14 @@
 [
   {
-    "date": "",
+    "date": "12/03/2023",
     "book": {
-      "title": "Glory ",
-      "author": "David\n"
+      "title": "Love story",
+      "author": "Ana\n"
     },
     "person": {
-      "id": 98,
-      "name": "Christian",
-      "age": 30
-    }
-  },
-  {
-    "date": "",
-    "book": {
-      "title": "Glory ",
-      "author": "David\n"
-    },
-    "person": {
-      "id": 98,
-      "name": "Christian",
-      "age": 30
-    }
-  },
-  {
-    "date": "",
-    "book": {
-      "title": "Glory ",
-      "author": "David\n"
-    },
-    "person": {
-      "id": 98,
-      "name": "Christian",
-      "age": 30
-    }
-  },
-  {
-    "date": "",
-    "book": {
-      "title": "Glory ",
-      "author": "David\n"
-    },
-    "person": {
-      "id": 98,
-      "name": "Christian",
-      "age": 30
-    }
-  },
-  {
-    "date": "",
-    "book": {
-      "title": "Glory ",
-      "author": "David\n"
-    },
-    "person": {
-      "id": 98,
-      "name": "Christian",
-      "age": 30
-    }
-  },
-  {
-    "date": "",
-    "book": {
-      "title": "Glory ",
-      "author": "David\n"
-    },
-    "person": {
-      "id": 98,
-      "name": "Christian",
-      "age": 30
-    }
-  },
-  {
-    "date": "",
-    "book": {
-      "title": "Glory ",
-      "author": "David\n"
-    },
-    "person": {
-      "id": 98,
-      "name": "Christian",
-      "age": 30
-    }
-  },
-  {
-    "date": "",
-    "book": {
-      "title": "Anmwey",
-      "author": "manman\n"
-    },
-    "person": {
-      "id": 62,
-      "name": "loll",
-      "age": 34
-    }
-  },
-  {
-    "date": "",
-    "book": {
-      "title": "Glory ",
-      "author": "David\n"
-    },
-    "person": {
-      "id": 98,
-      "name": "Christian",
-      "age": 30
-    }
-  },
-  {
-    "date": "",
-    "book": {
-      "title": "Glory ",
-      "author": "David\n"
-    },
-    "person": {
-      "id": 98,
-      "name": "Christian",
-      "age": 30
-    }
-  },
-  {
-    "date": "12/-21/23",
-    "book": {
-      "title": "Anmwey",
-      "author": "manman\n"
-    },
-    "person": {
-      "id": 40,
-      "name": "AAAAA",
-      "age": 123
+      "id": 46,
+      "name": "Fredo",
+      "age": 23
     }
   }
 ]
